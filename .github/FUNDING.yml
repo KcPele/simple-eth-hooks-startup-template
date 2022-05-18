@@ -1,7 +1,7 @@
 # These are supported funding model platforms
 
 github: KcPele
-patreon: Kc Pele
+patreon: kcpele
 ko_fi: kcpele
 ethereum: 0xf4030DdD79fc7Fd49b25C976C5021D07568B4F91
 tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
@@ -10,4 +10,4 @@ liberapay: # Replace with a single Liberapay username
 issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
 lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
-custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
+custom: ['https://etherscan.io/address/0xf4030DdD79fc7Fd49b25C976C5021D07568B4F91']
