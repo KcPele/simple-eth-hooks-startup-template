@@ -20,12 +20,10 @@ import Web3Modal from "web3modal";
 import "./App.css";
 import { INFURA_ID, NETWORK, NETWORKS } from "./constants";
 import { Notifier} from "./helpers";
-
+import { Account, Balance, Wallet, Blockie, Address, AddressInput, EtherInput } from './components'
 // contracts
 import externalContracts from "./contracts/external_contracts";
 import deployedContracts from "./contracts/hardhat_contracts.json";
-import internalContracts from "./contracts/internal_contracts"
-
 const { ethers } = require("ethers");
 
 /// 📡 What chain are your contracts deployed to?
@@ -303,33 +301,21 @@ function App() {
     console.log("retrieve   Balance", retrieveBalance);
     console.log("storage balance", storageETHBalance);
   };
-  const modalButtons = () => {
-    if (web3Modal) {
-      if (web3Modal.cachedProvider) {
-        return (
-          <button
-            key="logoutbutton"
-            style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
-            onClick={logoutOfWeb3Modal}
-          >
-            logout
-          </button>
-        );
-      } else {
-        return (
-          <button
-            style={{ verticalAlign: "top", marginLeft: 8, marginTop: 4 }}
-            onClick={loadWeb3Modal}
-          >
-            connect
-          </button>
-        );
-      }
-    }
-  };
+  
   return (
     <div className="App">
-      <div>{modalButtons()}</div>
+  <Account
+    address={address}
+    localProvider={localProvider}
+    userSigner={userSigner}
+    mainnetProvider={mainnetProvider}
+    price={price}
+    web3Modal={web3Modal}
+    loadWeb3Modal={loadWeb3Modal}
+    logoutOfWeb3Modal={logoutOfWeb3Modal}
+    blockExplorer={blockExplorer}
+  />
+
       <h2>Start up</h2>
       <button onClick={getContractBalance}>Contract Balance</button>
       <hr />
@@ -355,6 +341,9 @@ function App() {
           />
           <button type="submit">Store value</button>
         </form>
+      </div>
+      <div>
+     
       </div>
     </div>
   );
